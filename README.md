@@ -29,7 +29,7 @@ workflow:
       script: rollback_or_reroute
 ```
 This is how you get redundancy and resilience.
-Active‑active redundancy, active‑passive failover, or multi‑write quorum?
+- Active‑active redundancy, active‑passive failover, or multi‑write quorum?
 
 # CopilotKit <> Microsoft Agent Framework Starter
 
