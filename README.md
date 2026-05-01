@@ -1,3 +1,36 @@
+🧱 Example high‑level YAML structure
+```
+cronjob:
+  schedule: "*/5 * * * *"
+  workflow: distribute-data
+
+workflow:
+  name: distribute-data
+  steps:
+    - name: fetch-new-records
+      retry: { attempts: 3, backoff: 5s }
+
+    - name: route-records
+      script: route_to_db
+
+    - name: write-primary
+      when: db1_healthy
+      retry: { attempts: 5, backoff: 10s }
+
+    - name: write-secondary
+      when: db2_healthy
+      retry: { attempts: 5, backoff: 10s }
+
+    - name: verify
+      script: verify_writes
+
+    - name: compensate
+      when: verification_failed
+      script: rollback_or_reroute
+```
+This is how you get redundancy and resilience.
+Active‑active redundancy, active‑passive failover, or multi‑write quorum?
+
 # CopilotKit <> Microsoft Agent Framework Starter
 
 This is a starter template for building AI agents using [Microsoft Agent Framework](https://github.com/microsoft/agents) and [CopilotKit](https://copilotkit.ai). It provides a modern Next.js application with an integrated proverbs management agent that demonstrates AG-UI protocol features including shared state, generative UI, and human-in-the-loop workflows.
