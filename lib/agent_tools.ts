@@ -1,3 +1,16 @@
+/** 
+ * Recovering a deleted database
+ *
+ * Azure SQL PITR (Point-in-Time Restore
+ * Portal>SQL server>restore
+ * Azure MySQL Server Recovery: Use REST API to restore dropped MySQL 
+ * flexible server `resourceId` and `submissionTimestamp` from del event
+ * Azure CLI: `az sql db restore`
+ * Delayed Slave: (MySQL/MariaDB) 
+ * Use a new name to avoid potential conflicts with existing data
+ * Active Connection Blocks: By restoring to a new name this allows you to get the data back 
+ * onine without forcing a system-wide logout or downtime during the recovery process. 
+
 /**
  * CloudScapeNet Agent Tools Registry
  * 
